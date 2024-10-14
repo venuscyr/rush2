@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE POUR LES FANS DE BASKET</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="header">
+        <div class="logo">☰</div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">HOME</a>
+            <a href="#">SHOP</a>
+            <a href="#">MAGAZINE</a>
+        </div>
+        
+        <nav class="nav">
+        
+          <div class="right-nav">
+            <div class="cart-icon">&#128722;</div>
+            <div class="login-button">LOGIN</div>
+        </div>
+        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()"></div>
+     </div>
+    
+     
+
+    <div class="search-container">
+    <input type="text" class="search-input" placeholder="basket-ball equipment">
+    <button class="search-button">Search</button>
+ </div>
+ <div class="sort-dropdown">
+    <select id="sort-select">
+        <option value="best-match">Best match</option>
+    </select>
+ <div class="filters">
+    <select class="filter-select">
+        <option>Collection</option>
+    </select>
+    <select class="filter-select">
+        <option>Color</option>
+    </select>
+    <select class="filter-select">
+        <option>Category</option>
+    </select>
+    <select class="filter-select">
+        <option>Price Range</option>
+    </select>
+ </div>
+ 
+
+ <div class="results" id="results"></div>
+ <main>
+        <div class="pagination">
+            <button class="page-number active">1</button>
+            <button class="page-number">2</button>
+            <button class="page-number">3</button>
+            <button class="page-number">4</button>
+            <button class="page-number">5</button>
+            <button class="page-number">6</button>
+            <button class="page-number">7</button>
+            <button class="page-number">8</button>
+            <button class="page-number">9</button>
+            <button class="page-number">10</button>
+            <button class="next-page">></button>
+        </div>
+ </main>
+
+
+<script>
+  
+  function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active'); 
+        }
+   
+        const products = [
+{ name: 'Ball', price: 100, rating: 5, image: 'https://www.brooklynfizz.fr/2034-thickbox_default/ballon-de-streetball-spalding-black.jpg' },
+{ name: 'Basketball court', price: 25000, rating: 5, image: 'https://www.laboiteverte.fr/wp-content/uploads/2011/01/grapsime-terrain-basket-nba-plan-22.png' },
+{ name: 'Basket', price: 60, rating: 4, image: 'https://contents.mediadecathlon.com/p1097087/k$fd37e83b9d72267fa13801778b2b5fb5/sq/Panier+de+basket+enfant+B200+EASY+bleu+orange+1+60m+2+20m+Jusqu+10+ans.jpg' },
+{ name: 'Jersey', price: 185, rating: 5, image: 'https://m.media-amazon.com/images/I/41Zb6jSfbsL.jpg' },
+{ name: 'Shoes', price: 755, rating: 5, image: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1iyV55.img' },
+{ name: 'Short', price: 95, rating: 3, image: 'https://images-na.ssl-images-amazon.com/images/I/61hivwypM2L._AC_SL1001_.jpg' },
+{ name: 'Changing room', price: 6637, rating: 3, image: 'https://media.paperblog.fr/i/837/8376564/quelles-differences-vestiaire-nba-vestiaire-f-L-QeZbga.jpeg' },
+];
+
+function displayProducts() {
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = '';
+    
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product';
+        productElement.innerHTML = 
+        ` 
+        <img src="${product.image}" alt="${product.name}"> <h3>${product.name}</h3>
+        <p class="price">$${product.price}</p>
+        <p class="rating">${'★'.repeat(product.rating)}</p>
+         ;`
+         resultsContainer.appendChild(productElement);
+    });
+    } 
+ displayProducts();
+</script>
+</body>
+</html>
